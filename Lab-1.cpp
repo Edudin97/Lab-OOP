@@ -18,8 +18,12 @@ private:
 	student students;
 	group_students* next;
 public:
-	group_students() {}
-	~group_students() {}
+	group_students() {
+		
+	}
+	~group_students() {
+		
+	}
 
 	bool isEmpty(group_students* head)
 	{
@@ -29,7 +33,7 @@ public:
 			return false;
 	}
 
-	void insertAsFirstElement(group_students * &head, group_students * &last, string surname, string name, string date, int kurs, string title) // Добавление первого студента
+	void insertAsFirstElement(group_students * &head, group_students * &last, string surname, string name, string date, int kurs, string title) // Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЇГҐГ°ГўГ®ГЈГ® Г±ГІГіГ¤ГҐГ­ГІГ 
 	{
 		group = title;
 		group_students* temp = new group_students;
@@ -42,7 +46,7 @@ public:
 		last = temp;
 	}
 
-	void insert(group_students * &head, group_students * &last, string surname, string name, string date, int kurs, string title) // Добавление студентов
+	void insert(group_students * &head, group_students * &last, string surname, string name, string date, int kurs, string title) // Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г±ГІГіГ¤ГҐГ­ГІГ®Гў
 	{
 		if (isEmpty(head))
 			insertAsFirstElement(head, last, surname, name, date, kurs, title);
@@ -59,7 +63,7 @@ public:
 		}
 	}
 
-	void showList(group_students * current) // Вывод
+	void showList(group_students * current) // Г‚Г»ГўГ®Г¤
 	{
 		if (isEmpty(current))
 			cout << "The list is empty.\n";
@@ -83,7 +87,7 @@ public:
 		}
 	}
 
-	void remove(group_students * &head, group_students * &last, int del, int& count) // Функция удаления
+	void remove(group_students * &head, group_students * &last, int del, int& count) // Г”ГіГ­ГЄГ¶ГЁГї ГіГ¤Г Г«ГҐГ­ГЁГї
 	{
 		if ((head != NULL) && (del > 0) && (del <= count))
 		{
@@ -108,7 +112,7 @@ public:
 		}
 	}
 
-	void sortList(group_students * head) // Сортировка
+	void sortList(group_students * head) // Г‘Г®Г°ГІГЁГ°Г®ГўГЄГ 
 	{
 		group_students* temp2;
 		group_students* temp3;
@@ -138,7 +142,7 @@ public:
 		}
 	}
 
-	void searchList(group_students * head, string findValue) // Поиск
+	void searchList(group_students * head, string findValue) // ГЏГ®ГЁГ±ГЄ
 	{
 		cout << setw(35) << " Results for " << "\"" << findValue << "\"" << endl;
 		cout << "\n";
@@ -162,7 +166,7 @@ public:
 			cout << "\"" << findValue << "\"" << " not fonud! \n\n";
 	}
 
-	char menu() // Меню
+	char menu() // ГЊГҐГ­Гѕ
 	{
 		char choice;
 		cout << "Menu\n";
