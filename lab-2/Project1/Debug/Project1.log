@@ -1,0 +1,11 @@
+﻿  Action.cpp
+  Factory.cpp
+  HexString.cpp
+E:\Project1\Project1\HexString.cpp(7): warning C4018: <: несоответствие типов со знаком и без знака
+  Main.cpp
+  Menu.cpp
+  OperatorSub.cpp
+  ShowStr.cpp
+  Создание кода...
+  LINK : не найден или не выполнена сборка E:\Project1\Debug\Project1.exe при последней инкрементной компоновке; выполняется полная компоновка
+  Project1.vcxproj -> E:\Project1\Debug\Project1.exe
