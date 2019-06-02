@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <Windows.h>
-
 using namespace std;
 
 template <class T> class stack
