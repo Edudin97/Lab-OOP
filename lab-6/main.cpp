@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
+
 const int OPEN_VAL = 0;
 const int CLOSE_VAL = 1;
 const int START_VAL = -1;
