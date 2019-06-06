@@ -2,7 +2,6 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-
 const int OPEN_VAL = 0;
 const int CLOSE_VAL = 1;
 const int START_VAL = -1;
@@ -54,10 +53,10 @@ bool fill_stack(T_path_stack& path_stack)
 		cout << endl;
 	}
 
-	//Äëÿ êàæäîãî çíà÷åíèÿ â êëåòêå îò START_VAL è ìåíüøå çàïîëíÿåì ñîñåäíèå êëåòêè
-	//ñî çíà÷åíèåì OPEN_VAL çíà÷åíèåì íà åäèíèöó ìåíüøå, ÷åì â òåêóùåé êëåòêå.
-	//Ïðîöåññ çàêàí÷èâàåòñÿ, êîãäà ìû çàïîëíÿåì êëåòêó, ñòîÿùóþ ñ êðàþ, ëèáî, åñëè 
-	//ïðè î÷åðåäíîì ïðîõîäå ìû íå çàïîëíèëè íè îäíîé êëåòêè.    
+	//Ã„Ã«Ã¿ ÃªÃ Ã¦Ã¤Ã®Ã£Ã® Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿ Ã¢ ÃªÃ«Ã¥Ã²ÃªÃ¥ Ã®Ã² START_VAL Ã¨ Ã¬Ã¥Ã­Ã¼Ã¸Ã¥ Ã§Ã Ã¯Ã®Ã«Ã­Ã¿Ã¥Ã¬ Ã±Ã®Ã±Ã¥Ã¤Ã­Ã¨Ã¥ ÃªÃ«Ã¥Ã²ÃªÃ¨
+	//Ã±Ã® Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥Ã¬ OPEN_VAL Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥Ã¬ Ã­Ã  Ã¥Ã¤Ã¨Ã­Ã¨Ã¶Ã³ Ã¬Ã¥Ã­Ã¼Ã¸Ã¥, Ã·Ã¥Ã¬ Ã¢ Ã²Ã¥ÃªÃ³Ã¹Ã¥Ã© ÃªÃ«Ã¥Ã²ÃªÃ¥.
+	//ÃÃ°Ã®Ã¶Ã¥Ã±Ã± Ã§Ã ÃªÃ Ã­Ã·Ã¨Ã¢Ã Ã¥Ã²Ã±Ã¿, ÃªÃ®Ã£Ã¤Ã  Ã¬Ã» Ã§Ã Ã¯Ã®Ã«Ã­Ã¿Ã¥Ã¬ ÃªÃ«Ã¥Ã²ÃªÃ³, Ã±Ã²Ã®Ã¿Ã¹Ã³Ã¾ Ã± ÃªÃ°Ã Ã¾, Ã«Ã¨Ã¡Ã®, Ã¥Ã±Ã«Ã¨ 
+	//Ã¯Ã°Ã¨ Ã®Ã·Ã¥Ã°Ã¥Ã¤Ã­Ã®Ã¬ Ã¯Ã°Ã®ÃµÃ®Ã¤Ã¥ Ã¬Ã» Ã­Ã¥ Ã§Ã Ã¯Ã®Ã«Ã­Ã¨Ã«Ã¨ Ã­Ã¨ Ã®Ã¤Ã­Ã®Ã© ÃªÃ«Ã¥Ã²ÃªÃ¨.    
 	for (int cur_cell_val = START_VAL; ; --cur_cell_val)
 	{   
 		int  start_stack_size = path_stack.size();
@@ -67,14 +66,14 @@ bool fill_stack(T_path_stack& path_stack)
 			{
 				if (labirint[i][j] == cur_cell_val)
 				{
-					// Îáõîäèì ñîñåäíèå êëåòêè.
+					// ÃŽÃ¡ÃµÃ®Ã¤Ã¨Ã¬ Ã±Ã®Ã±Ã¥Ã¤Ã­Ã¨Ã¥ ÃªÃ«Ã¥Ã²ÃªÃ¨.
 					for (int  i_sosed = std::max(i - 1, 0);
 						i_sosed <= std::min(i + 1, m - 1); ++i_sosed)
 					{
 						for (int  j_sosed = std::max(j - 1, 0);
 							j_sosed <= std::min(j + 1, n - 1); ++j_sosed)
 						{
-							// Åñëè ñòîëáöû èëè ñòðîêè ñîâïàäàþò è êëåòêà ñâîáîäíà, òî:
+							// Ã…Ã±Ã«Ã¨ Ã±Ã²Ã®Ã«Ã¡Ã¶Ã» Ã¨Ã«Ã¨ Ã±Ã²Ã°Ã®ÃªÃ¨ Ã±Ã®Ã¢Ã¯Ã Ã¤Ã Ã¾Ã² Ã¨ ÃªÃ«Ã¥Ã²ÃªÃ  Ã±Ã¢Ã®Ã¡Ã®Ã¤Ã­Ã , Ã²Ã®:
 							if ((i_sosed == i || j_sosed == j)
 								&& labirint[i_sosed][j_sosed] == OPEN_VAL)
 							{
@@ -87,7 +86,7 @@ bool fill_stack(T_path_stack& path_stack)
 										)
 									);
 
-								//Åñëè êëåòêà êðàéíÿÿ, òî:
+								//Ã…Ã±Ã«Ã¨ ÃªÃ«Ã¥Ã²ÃªÃ  ÃªÃ°Ã Ã©Ã­Ã¿Ã¿, Ã²Ã®:
 								if (i_sosed == 0 || i_sosed == m - 1
 									|| j_sosed == 0 || j_sosed == n - 1)
 								{
@@ -105,7 +104,7 @@ bool fill_stack(T_path_stack& path_stack)
 
 void print_path(T_path_stack  path_stack)
 {
-	cout << "Ìàðøðóò â ëàáèðèíòå îò âûõîäà äî ñòàðòîâîé êëåòêè:" << endl;
+	cout << "ÃŒÃ Ã°Ã¸Ã°Ã³Ã² Ã¢ Ã«Ã Ã¡Ã¨Ã°Ã¨Ã­Ã²Ã¥ Ã®Ã² Ã¢Ã»ÃµÃ®Ã¤Ã  Ã¤Ã® Ã±Ã²Ã Ã°Ã²Ã®Ã¢Ã®Ã© ÃªÃ«Ã¥Ã²ÃªÃ¨:" << endl;
 	for (;;)
 	{
 		T_cell  prev_cell = path_stack.top().prev_cell;
@@ -129,7 +128,7 @@ int main()
 
 	if (!fill_stack(path_stack))
 	{
-		std::cout << "Íåò âûõîäà!" << std::endl;
+		std::cout << "ÃÃ¥Ã² Ã¢Ã»ÃµÃ®Ã¤Ã !" << std::endl;
 	}
 	else
 	{
